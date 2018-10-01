@@ -18,11 +18,13 @@ class Player:
 
 	def getScore(self):
 		"""
+		Returns the actual sum of the values of the player's cards
 		"""
 		return self.score
 
 	def isBust(self):
 		"""
+		Query if the player has gone over 21 or not
 		"""
 		if self.score > 21:
 			return 1
@@ -57,6 +59,7 @@ class Player:
 
 	def hitMe(self, card):
 		"""
+		Give the player a new pseudo-random card
 		"""
 		self.cards.append(card)
 		# print([x.getFace() for x in self.cards])
@@ -72,10 +75,12 @@ class Player:
 
 	def getMoney(self):
 		"""
+		Return the money that this player still has available
 		"""
 		return self.money
 
 	def getName(self):
 		"""
+		Return the string name of this player object
 		"""
 		return self.name

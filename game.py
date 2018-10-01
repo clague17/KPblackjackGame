@@ -11,10 +11,9 @@ class Game:
 			players
 			dealer
 			deck
-
 		"""
 		self.players = newPlayers
-		self.dealer = Player("dealer", 99999999999)
+		self.dealer = Player("dealer", 99999999999) #has virtually unlimited money
 		self.deck = Deck()
 
 	def __str__(self):
@@ -22,7 +21,7 @@ class Game:
 
 	def theBet(self, playersList):
 		"""
-		Just performs theBet portion of the game
+		Just performs theBet portion of the game, locking in everyone's bet
 		"""
 		print("First, the Bet.")
 		wagers = {}
@@ -33,7 +32,7 @@ class Game:
 
 	def theDeal(self, players):
 		"""
-		players is a list of all the players
+		players is a list of all the Player objects
 		"""
 		print("Shuffling the deck...")
 		sleep(.1)
@@ -42,14 +41,12 @@ class Game:
 		sleep(.1)
 		print("Dealing...")
 		for player in players:
-			player.hitMe(self.deck.getCard())
+			player.hitMe(self.deck.getCard()) #give a player a random card
 			print(player.getName() + " has " + player.getCards()[0].getFace())
 		# self.dealer.hitMe(self.deck.getCard())
 		for player in players:
 			player.hitMe(self.deck.getCard())
 			print(player.getName() + " has " + player.getCards()[1].getFace())
-		# self.dealer.hitMe(self.deck.getCard())
-		# self.dealer.getScore()
 
 	def thePlay(self, wagers):
 		"""
@@ -67,11 +64,9 @@ class Game:
 				if bust:
 					break
 				hitMe = input("Hit again? (Y/N) >")
-			# if bust:
-			# 	print(player.getName() + " is bust! You lost: " + wagers[player])
 		# implementing the dealer's play!
 		print("The dealer has " + str([x.getFace() for x in self.dealer.getCards()]))
-		sleep(.9)
+		sleep(.9) #The time delays make the experience a whole lot better
 		while self.dealer.getScore() < 17:
 			print("...")
 			sleep(1)
@@ -85,7 +80,7 @@ class Game:
 					print("...")
 					sleep(1)
 					print(player.getName() + " gets " + str(wagers[player]))
-					player.updateMoney(int(wagers[player]))
+					player.updateMoney(int(wagers[player])) #update the player.money attribute
 				elif player.isBust():
 					print("You went bust as well, so you still lose :(")
 					sleep(.8)

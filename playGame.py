@@ -7,14 +7,20 @@ from time import sleep
 import re
 
 
-def rules():
+def daRules():
 	"""
 	Returns the rules of the Game
 	"""
-	# str = "WELCOME TO THIS AWESOME AMAZING GAME ITS LIT WOW AWESOME LITTY"
-	str = "A bet once paid and collected is never returned. Thus, one key advantage to the dealer is that the player goes first. If the player goes bust, he has already lost his wager, even if the dealer goes bust as well. If the dealer goes over 21, he pays each player who has stood the amount of that player's bet. If the dealer stands at 21 or less, he pays the bet of any player having a higher total (not exceeding 21) and collects the bet of any player having a lower total. If there is a stand-off (a player having the same total as the dealer), no chips are paid out or collected."
+	# print("hello")
+	print("Each participant attempts to beat the dealer by getting a count as close to 21 as possible, without going over 21.")
+	print("It is up to each individual player if an ace is worth 1 or 11. Face cards are 10 and any other card is its pip value.")
+	print("A bet once paid and collected is never returned. Thus, one key advantage to the dealer is that the player goes first.")
+	print("If the player goes bust, he has already lost his wager, even if the dealer goes bust as well.")
+	print("------------------------------")
+	print("Really, you'll get the hang of it after playing a few rounds!")
+	print("Be SURE to follow the instructions to the T. Don't try anything goofy or the program will fail :(")
+	print("------------------------------")
 
-	return str
 
 def addingPlayers(keepAdding, playersList):
 	"""
@@ -39,10 +45,11 @@ def addingPlayers(keepAdding, playersList):
 
 
 def playGame(): #if the input is some random character (i.e. % or something, then display rules())
-	print("This is the game that we are playing!")
+	print("Welcome to BlackJack!")
 	rules = input("For rules, type: 'help' Otherwise type 'play': ")
 	if rules == "help":
-		print(rules())
+		daRules()
+		playGame()
 	elif rules == "play" or rules == "":
 		#continue with the game !
 		playersList = addingPlayers(True, [])
