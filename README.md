@@ -1,26 +1,52 @@
 # KPblackjackGame
-Instructions for running my code:
+
+### How to run:
+
+Clone github repo:
+
+```sh
+$ git clone https://github.com/clague17/KPblackjackGame.git
+```
+
+```sh
+$ cd <path/to/repo>/KPblackjackGame
+$ python playGame.py
+```
+
 Run the file playGame.py in your terminal. The imports to that file should be handled without a problem. Then follow the onscreen text prompts precisely as they are written in order to have an enjoyable experience! Have fun and try not to lose too much money playing BlackJack.
 
-Choice of tooling and rationale:
-I created my project in Python, and used the time and random libraries to implement delays and generate pseudo random draws from the deck of cards. My reasoning behind using python is that it is a fast-development scripting language that I could use to easily make a file that can be run from the terminal. I also chose it because I am most comfortable with that language, and I did not want to waste time creating a .tar file for perhaps a Java solution. While python isn’t the best language for Object Oriented programming, I made it work and it is usable for this solution.
+### Tooling and Rationale
 
-High level Structure:
+I created my project in Python2, and used the time and random libraries to implement delays and generate pseudo random draws from the deck of cards. My reasoning behind using python is that it is a fast-development scripting language that I could use to easily make a file that can be run from the terminal.
 
-Game object:
-Uses Player object (List of players attribute)
-Uses Card Object (card attribute)
-Has a score attribute
-Has a money attribute
-Has a name attribute
-Uses Deck object (A standard 52 card deck)
-Has a dealer attribute (a player object)
+### High level structure
 
-theBet:
-Create a hashMap wagers that maps each player to their bet
-theDeal
-Take cards from the Deck object at random and
+Game Object
 
-I created the Game object in a way such that each turn is effectively modular. That is, the Game is broken down into three “steps”: theBet, theDeal, and thePlay. In theBet, each player in the game.players attribute goes around betting on this round, then in theDeal, the dealing occurs, and finally in thePlay, the interesting part of the game actually happens. My implementation allows for many turns to be played as well as multiplayer addition and removal as the rounds progress. I did address the edge case where a player runs out of money and necessarily has to leave the table (theGame).
+- Uses Player object (List of players attribute)
+- Uses Card Object (card attribute)
+- Has a score attribute
+- Has a money attribute
+- Has a name attribute
+- Uses Deck object (A standard 52 card deck)
+- Has a dealer attribute (a player object)
 
-Note: I did not effectively handle all possible edge cases, and in the case where the user deviates even slightly from the requested input prompts, the rest of the program can and probably will inevitably fail. I prioritized making the foundation of the game scalable and well organized rather than specifically addressing each possible edge case in the 3 hours suggested time.
+I created the Game object in a way such that each turn is effectively modular. That is, the Game is broken down into three “steps”: theBet, theDeal, and thePlay.
+
+##### TheBet
+
+In theBet, each player in the game.players attribute goes around betting on this round and locks in initial bets.
+
+##### TheDeal
+
+In theDeal, the initial deck shuffle and first round dealing occurs.
+
+##### thePlay
+
+In thePlay, the actual blackjack logic such as hitMe, raise, check, bust, dealerPlays are all implemented.
+
+My implementation allows for many turns to be played as well as multiplayer addition and removal as the rounds progress. I did address the edge case where a player runs out of money and necessarily has to leave the table (theGame).
+
+#### Note
+
+I did not effectively handle all possible edge cases, and in the case where the user deviates even slightly from the requested input prompts, the rest of the program can and probably will fail. I prioritized making the foundation of the game well organized and modular rather than specifically addressing each possible edge case in the 3 hours suggested time. With more time, I would increase the robustness of this small app, as well as add intensive testing.

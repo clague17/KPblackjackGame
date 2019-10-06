@@ -46,7 +46,7 @@ class Game:
         for player in players:
             player.hitMe(self.deck.getCard())  # give a player a random card
             print(player.getName() + " has " + player.getCards()[0].getFace())
-        # self.dealer.hitMe(self.deck.getCard())
+
         for player in players:
             player.hitMe(self.deck.getCard())
             print(player.getName() + " has " + player.getCards()[1].getFace())
@@ -75,7 +75,8 @@ class Game:
                 hitMe = input("Hit again? (Y/N) >")
         # implementing the dealer's play!
         print("The dealer has " + str([x.getFace() for x in self.dealer.getCards()]))
-        sleep(0.9)  # The time delays make the experience a whole lot better
+        # The time delays make the experience a whole lot better
+        sleep(0.9)
         while self.dealer.getScore() < 17:
             print("...")
             sleep(1)
@@ -101,7 +102,6 @@ class Game:
                     print(player.getName() + " lost " + str(wagers[player]))
                     player.updateMoney(-1 * int(wagers[player]))
         else:
-            # print("The dealer has: " + str([x.getFace() for x in self.dealer.getCards()]), " for a total of: " + str(self.dealer.getScore()))
             for player in self.players:
                 if self.dealer.getScore() < player.getScore() and not player.isBust():
                     print("...")
@@ -133,6 +133,5 @@ class Game:
         print("...")
         sleep(1.5)
         print("The round is over.")
-        # print(".")
         for player in self.players:
             print(player.getName() + " now has " + str(player.getMoney()))
