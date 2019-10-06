@@ -10,14 +10,14 @@ $ git clone https://github.com/clague17/KPblackjackGame.git
 
 ```sh
 $ cd <path/to/repo>/KPblackjackGame
-$ python playGame.py
+$ python3 playGame.py
 ```
 
-Run the file playGame.py in your terminal. The imports to that file should be handled without a problem. Then follow the onscreen text prompts precisely as they are written in order to have an enjoyable experience! Have fun and try not to lose too much money playing BlackJack.
+Run the file playGame.py in your terminal using python3. The imports to that file should be handled without a problem. Then follow the onscreen text prompts precisely as they are written in order to have an enjoyable experience! Have fun and try not to lose too much money playing BlackJack.
 
 ### Tooling and Rationale
 
-I created my project in Python2, and used the time and random libraries to implement delays and generate pseudo random draws from the deck of cards. My reasoning behind using python is that it is a fast-development scripting language that I could use to easily make a file that can be run from the terminal.
+I created my project in **Python3**, and used the time and random libraries to implement delays and generate pseudo random draws from the deck of cards. My reasoning behind using python is that it is a fast-development scripting language that I could use to easily make a file that can be run from the terminal.
 
 ### High level structure
 

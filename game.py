@@ -63,7 +63,7 @@ class Game:
             )
             hitMe = input("Hit ? (Y/N) >")
             bust = False
-            while (hitMe == "Y" or hitMe == "") and not bust:
+            while (hitMe == "Y" or hitMe == "" or hitMe == "y") and not bust:
                 player.hitMe(self.deck.getCard())
                 print(
                     [x.getFace() for x in player.getCards()],
@@ -83,7 +83,10 @@ class Game:
             self.dealer.hitMe(self.deck.getCard())
             print(
                 "The dealer has: " + str([x.getFace() for x in self.dealer.getCards()]),
-                " for a total of: " + str(self.dealer.getScore()),
+                " for a total of: "
+                + "\033[32m"
+                + str(self.dealer.getScore())
+                + "\033[0m",
             )
         if self.dealer.isBust():
             print("The dealer went bust!")
@@ -97,7 +100,7 @@ class Game:
                         int(wagers[player])
                     )  # update the player.money attribute
                 elif player.isBust():
-                    print("You went bust as well, so you still lose :(")
+                    print("You went bust as well, so you still lose :( ")
                     sleep(0.8)
                     print(player.getName() + " lost " + str(wagers[player]))
                     player.updateMoney(-1 * int(wagers[player]))
@@ -123,7 +126,7 @@ class Game:
                         break
                     print("...")
                     print(
-                        "The dealer beat you :("
+                        "The dealer beat you :( "
                         + str(player.getScore())
                         + " < "
                         + str(self.dealer.getScore())

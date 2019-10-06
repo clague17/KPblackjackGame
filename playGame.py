@@ -57,6 +57,7 @@ def addingPlayers(keepAdding, playersList):
 def playGame():  # if the input is some random character (i.e. % or something, then display rules())
     print("Welcome to BlackJack!")
     rules = input("For rules, type: 'help' Otherwise type 'play': ")
+    print("RULEZ: ", rules)
     if rules == "help":
         daRules()
         playGame()
@@ -71,7 +72,7 @@ def playGame():  # if the input is some random character (i.e. % or something, t
         while keepPlaying:
             wagers = theGame.theBet(newPlayersList)
             print("The bets are in!")
-            print("Now we begin to Deal")
+            print("\033[94m" + "Now we begin to Deal" + "\033[0m")
             theGame.theDeal(newPlayersList)  # cards have been dealt lit
             theGame.thePlay(wagers)
             for player in theGame.players:
