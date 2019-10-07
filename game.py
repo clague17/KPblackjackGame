@@ -27,9 +27,14 @@ class Game:
         print("\033[94m" + "First, the Bet." + "\033[0m")
         wagers = {}
         for player in playersList:
+            # wagers[player] = int(bet)
             bet = input(
                 "How much does " + player.getName() + " want to bet for this round? >"
             )  # add some input parsing
+            bet = int(bet)
+            while bet > player.money:
+                bet = input("Can't bet more money than you have! Try again: ")
+                bet = int(bet)
             wagers[player] = int(bet)
         return wagers
 

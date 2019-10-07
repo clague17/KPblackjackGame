@@ -57,7 +57,6 @@ def addingPlayers(keepAdding, playersList):
 def playGame():  # if the input is some random character (i.e. % or something, then display rules())
     print("Welcome to BlackJack!")
     rules = input("For rules, type: 'help' Otherwise type 'play': ")
-    print("RULEZ: ", rules)
     if rules == "help":
         daRules()
         playGame()
